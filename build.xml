@@ -1,0 +1,40 @@
+<project name="evaluator">
+    <target name = "clean">
+        <delete dir = "evaluator/build"></delete>
+    </target>
+    <target name="compile" depends = "clean">
+        <mkdir dir="dist"></mkdir>
+        <mkdir dir="dist/build/classes"></mkdir>
+        <javac srcdir="src" destdir="dist/build/classes"></javac>
+    </target>
+    <target name="test-compile" depends="compile">
+        <mkdir dir="dist/build/test-classes"></mkdir>
+        <javac srcdir="test" destdir="dist/build/test-classes" classpath="dist/build/classes"></javac>
+    </target>
+    <target name="run-test" depends="test-compile">
+        <java classname="org.junit.runner.JUnitCore"
+              classpath="dist/external-lib/junit-4.10.jar;dist/build/classes;dist/build/test-classes">
+            <arg value="test/EvaluatorTest"/>
+        </java>
+    </target>
+    <target name="createDir" depends="test-compile">
+        <mkdir dir="dist/lib"></mkdir>
+        <mkdir dir="dist/bin"></mkdir>
+    </target>
+    <target name="createJar" depends="createDir">
+        <jar destfile="dist/lib/evaluator.jar" basedir="dist/build/classes"></jar>
+        <delete dir = "dist/build/classes"></delete>
+        <delete dir = "dist/build/test-classes"></delete>
+    </target>
+    <target name="moveSH" depends="createJar">
+        <copy todir="dist/bin">
+            <fileset dir="shFiles"/>
+        </copy>
+    </target>
+    <target name="copyReadme" depends="moveSH">
+        <copy file="README.md" todir="dist"></copy>
+    </target>
+    <target name="zipfile" depends="copyReadme">
+        <zip destfile="dist.zip" basedir="dist"/>
+    </target>
+</project>
