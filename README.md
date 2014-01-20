@@ -8,3 +8,8 @@ evaluator
 *classpath contains path of bin folder*
 
 *example = "D:\projects\evaluator"*
+
+### Running Program-
+
+*sh evaluator.sh "expression"*
+** for ex = sh evaluator.sh "2 + 3"

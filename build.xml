@@ -6,16 +6,26 @@
         <mkdir dir="evaluator_dist/build/classes"></mkdir>
         <javac srcdir="src" destdir="evaluator_dist/build/classes"></javac>
     </target>
+
     <target name="test-compile" depends="compile">
         <mkdir dir="evaluator_dist/build/test-classes"></mkdir>
         <javac srcdir="test" destdir="evaluator_dist/build/test-classes"
-               classpath="evaluator_dist/build/classes"></javac>
+               classpath="evaluator_dist/build/classes;evaluator_dist/external-lib/junit-4.10.jar" debug="yes"></javac>
     </target>
     <target name="run-test" depends="test-compile">
-        <java classname="org.junit.runner.JUnitCore"
-              classpath="evaluator_dist/external-lib/junit-4.10.jar;evaluator_dist/build/classes;evaluator_dist/build/test-classes">
-            <arg value="library.EvaluatorTest"/>
-        </java>
+        <junit>
+            <classpath>
+                <pathelement location="evaluator_dist/build/classes"/>
+                <pathelement location="evaluator_dist/build/test-classes"/>
+                <pathelement location="evaluator_dist/external-lib/junit-4.10.jar"/>
+            </classpath>
+            <batchtest>
+                <fileset dir="evaluator_dist/build/test-classes">
+                    <include name="**/Test"/>
+                </fileset>
+            </batchtest>
+            <formatter type = "brief" usefile = "false"/>
+        </junit>
     </target>
     <target name="createDir" depends="run-test">
         <mkdir dir="evaluator_dist/lib"></mkdir>
