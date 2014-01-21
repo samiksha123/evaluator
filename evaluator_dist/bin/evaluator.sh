@@ -1,1 +1,1 @@
-java -cp $EVALUATOR/lib/evaluator.jar client.EvaluatorClient $1
+java -cp $EVALUATOR_HOME/lib/evaluator.jar client.EvaluatorClient "$@"

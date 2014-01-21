@@ -20,6 +20,7 @@ public class EvaluatorTest extends Evaluator {
     @org.junit.Test
     public void test_for_adding_two_numbers_if_space_is_not_given() throws Exception {
         String str = "45+10";
+
         Evaluator e = new Evaluator();
         int res = e.evaluate(str);
         assertEquals(res,0);
@@ -32,3 +33,4 @@ public class EvaluatorTest extends Evaluator {
         assertEquals(res,0);
     }
 }
+
