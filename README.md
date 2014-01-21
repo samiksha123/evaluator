@@ -7,7 +7,7 @@ evaluator
 
 *classpath contains path of bin folder*
 
-*example = "D:\projects\evaluator"*
+*example = "D:\projects\evaluator\evaluator_dist"*
 
 ### Running Program-
 
