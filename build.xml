@@ -27,6 +27,13 @@
             <formatter type = "brief" usefile = "false"/>
         </junit>
     </target>
+
+    <!--<target name="exit" if="test.failed">-->
+        <!--<fail message="tests failed."/>-->
+    <!--</target>-->
+
+    <!--<target name="run-test" depends="test,exit"/>-->
+
     <target name="createDir" depends="run-test">
         <mkdir dir="evaluator_dist/lib"></mkdir>
         <mkdir dir="evaluator_dist/bin"></mkdir>
@@ -48,5 +55,3 @@
         <zip destfile="evaluator_dist.zip" basedir="evaluator_dist"/>
     </target>
 </project>
-
-
