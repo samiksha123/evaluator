@@ -1,21 +1,23 @@
 evaluator
 =========
+evaluator evaluates the given expression.
 
-### Installation details -
+### How do get Start with it.
 
-*your classpath variable name must be "EVALUATOR_HOME"*
+* Clone this repository on your machine.
+* Build the project using ant tools.
+* Extract the "evaluator.zip".
+* Set the environment variable with the name of `EVALUATOR_HOME`.
+* Use shell file to run evaluator.
 
-*classpath contains path of bin folder*
+### Release 0.1
 
-*example = "D:\projects\evaluator\evaluator_dist"*
-
-### Running Program-
-
-1) Release 0.1
+*use the following statement to run this evaluator :-
 *sh evaluator.sh "expression"*
-** for ex = sh evaluator.sh "2 + 3"
 
-steps----
-1)product can perform only addition of two operands
-2)expression must contain space between operands and operator
-3)if space is not present,it will give 0
+**ex:- sh evaluator.sh "2 + 3"
+it will give 5
+
+* The expression takes only one operator (+) and two operands
+* spaces must be present in the expression between operands and operator.
+* Only positive Integers will be supported.

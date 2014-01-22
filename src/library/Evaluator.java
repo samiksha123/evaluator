@@ -4,7 +4,6 @@ public class Evaluator {
     public int evaluate(String expression) {
         if (!expression.contains(" ")) return 0;
         String contents[] = expression.split(" ");
-        if (contents.length == 1) return 0;
         int num1 = Integer.parseInt(contents[0]);
         int num2 = Integer.parseInt(contents[2]);
         int result = 0;
