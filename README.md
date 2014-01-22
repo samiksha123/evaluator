@@ -9,11 +9,9 @@ evaluator evaluates the given expression.
 * Set the environment variable with the name of `EVALUATOR_HOME`.
 * Use shell file to run evaluator.
 
+=======
 ### Release 0.1
-
-*use the following statement to run this evaluator :-
 *sh evaluator.sh "expression"*
-
 **ex:- sh evaluator.sh "2 + 3"
 it will give 5
 
